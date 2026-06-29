@@ -34,11 +34,7 @@ public abstract class Funcionario extends Pessoa{
         this.salario = salario;
     }
 
-    public void aumentarSalario(double porcentagem){
-        if(porcentagem > 0){
-            this.salario += this.salario * (porcentagem / 100);
-        }
-    }
+    public abstract double calcularSalario();
 
     @Override
     public String toString() {

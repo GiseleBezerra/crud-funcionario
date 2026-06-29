@@ -36,17 +36,6 @@ public class FuncionarioService {
         return null;
     }
 
-    public boolean aumentarSalario(int id, double porcentagem) {
-        Funcionario f = buscarPorId(id);
-
-        if (f == null || porcentagem <= 0) {
-            return false;
-        }
-
-        f.aumentarSalario(porcentagem);
-        return true;
-    }
-
     public boolean removerFuncionario(int id) {
         Funcionario funcionario = buscarPorId(id);
 

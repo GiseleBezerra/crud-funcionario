@@ -6,4 +6,9 @@ public class Desenvolvedor extends Funcionario {
         super(id, nome, cpf, idade, salario, departamento, Cargo.DESENVOLVEDOR);
     }
 
+    @Override
+    public double calcularSalario(){
+        return getSalario() * 1.10;
+    }
+
 }

@@ -20,8 +20,7 @@ public class Main {
             System.out.println("\n===== MENU =====");
             System.out.println("1- Cadastrar funcionário");
             System.out.println("2- Listar funcionários");
-            System.out.println("3- Aumentar salário");
-            System.out.println("4- Remover funcionário");
+            System.out.println("3- Remover funcionário");
             System.out.println("0- Sair");
             System.out.println();
             System.out.print("Escolha a opção: ");
@@ -93,20 +92,6 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.print("ID do funcionário: ");
-                    int idAumento = sc.nextInt();
-
-                    System.out.print("Porcentagem: ");
-                    double porcentagem = sc.nextDouble();
-
-                    if (service.aumentarSalario(idAumento, porcentagem)) {
-                        System.out.println("Salário atualizado!");
-                    } else {
-                        System.out.println("Erro ao atualizar salário.");
-                    }
-                    break;
-
-                case 4:
                     System.out.print("Digite o ID para remover: ");
                     int idRemover = sc.nextInt();
 

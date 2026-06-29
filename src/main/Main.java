@@ -1,6 +1,9 @@
 package main;
 
+import model.Desenvolvedor;
+import model.Estagiario;
 import model.Funcionario;
+import model.Gerente;
 import service.FuncionarioService;
 import java.util.Scanner;
 
@@ -28,6 +31,14 @@ public class Main {
             switch (opcao) {
 
                 case 1:
+                    System.out.println("Escolha o cargo:");
+                    System.out.println("1- Gerente");
+                    System.out.println("2- Desenvolvedor");
+                    System.out.println("3- Estagiário");
+
+                    int tipoCargo = sc.nextInt();
+                    sc.nextLine();
+
                     System.out.print("ID: ");
                     int id = sc.nextInt();
                     sc.nextLine();
@@ -35,22 +46,47 @@ public class Main {
                     System.out.print("Nome: ");
                     String nome = sc.nextLine();
 
+                    System.out.print("CPF: ");
+                    String cpf = sc.nextLine();
+
+                    System.out.print("Idade: ");
+                    int idade = sc.nextInt();
+
                     System.out.print("Salário: ");
                     double salario = sc.nextDouble();
+                    sc.nextLine();
+
+                    System.out.print("Departamento: ");
+                    String departamento = sc.nextLine();
 
                     if (salario < 0) {
                         System.out.println("Salário inválido.");
                         break;
                     }
 
-                    Funcionario funcionario = new Funcionario(id, nome, salario);
+                    Funcionario funcionario = null;
 
-                    if (service.adicionarFuncionario(funcionario)) {
-                        System.out.println("Funcionário cadastrado!");
-                    } else {
-                        System.out.println("ID já existe.");
+                    switch (tipoCargo){
+                        case 1:
+                            funcionario = new Gerente(id, nome, cpf, idade, salario, departamento);
+                            break;
+                        case 2:
+                            funcionario = new Desenvolvedor(id, nome, cpf, idade, salario, departamento);
+                            break;
+                        case 3:
+                            funcionario = new Estagiario(id, nome, cpf, idade, salario, departamento);
+                            break;
+                        default:
+                            System.out.println("Tipo inválido.");
                     }
-                    break;
+
+                    if(funcionario != null){
+                        if(service.adicionarFuncionario(funcionario)){
+                            System.out.println("Funcionário cadastrado!");
+                        } else{
+                            System.out.println("Id já existe.");
+                        }
+                    }
 
                 case 2:
                     service.listarFuncionarios();

@@ -5,7 +5,6 @@ Sistema de gerenciamento de funcionários desenvolvido em Java para praticar Pro
 ## Funcionalidades
 - Cadastro de funcionários
 - Listagem
-- Aumento de salário
 - Remoção
 
 ## Tecnologias
